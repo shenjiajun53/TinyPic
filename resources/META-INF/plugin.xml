@@ -1,0 +1,39 @@
+<idea-plugin version="2">
+    <id>com.shenjiajun.TinyPic</id>
+    <name>TinyPic</name>
+    <version>1.0</version>
+    <vendor email="shenjiajun53@qq.com" url="http://www.yourcompany.com">ShenJiajun</vendor>
+
+    <description><![CDATA[
+      Enter short description for your plugin here.<br>
+      <em>most HTML tags may be used</em>
+    ]]></description>
+
+    <change-notes><![CDATA[
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>
+    ]]>
+    </change-notes>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="145.0"/>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="com.shenjiajun.TinyAction" class="com.shenjiajun.TinyAction" text="TinyPic" description="com.shenjiajun.TinyAction"
+                icon="/icons/drawable-mdpi/ic_photo_size_select_large_pink_500_18dp.png">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </action>
+    </actions>
+
+</idea-plugin>

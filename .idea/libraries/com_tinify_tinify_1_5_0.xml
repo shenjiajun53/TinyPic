@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="com.tinify:tinify:1.5.0" type="repository">
+    <properties maven-id="com.tinify:tinify:1.5.0" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/tinify-1.5.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/okhttp-2.5.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/okio-1.6.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/gson-2.3.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
