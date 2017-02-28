@@ -45,7 +45,7 @@ public class ProgressDialog extends DialogWrapper {
         jProgressBar.setValue(currentIndex);
         jProgressBar.setStringPainted(true);
 
-        reminderText = new JTextArea();
+        reminderText = new JTextArea("每月500张图片限制已用完,请获取新KEY");
         reminderText.setVisible(false);
 //        reminderText.setForeground(Color.CYAN);
         reminderText.setBackground(new Color(255, 255, 255, 0));
@@ -56,9 +56,9 @@ public class ProgressDialog extends DialogWrapper {
         return jPanel;
     }
 
-    public void showError(String errorStr) {
+    public void showError() {
         jProgressBar.setVisible(false);
-        reminderText.setText(errorStr);
+//        reminderText.setText(errorStr);
         reminderText.setVisible(true);
     }
 

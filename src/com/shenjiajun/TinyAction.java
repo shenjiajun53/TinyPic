@@ -99,7 +99,7 @@ public class TinyAction extends AnAction {
                         e1.printStackTrace();
                         if (e1.toString().contains("AccountException")) {
                             cancelTiny = true;
-                            progressDialog.showError("每月500张图片限制已用完,请获取新KEY");
+                            progressDialog.showError();
                         }
                     }
                 }

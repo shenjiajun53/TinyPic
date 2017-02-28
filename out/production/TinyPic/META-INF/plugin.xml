@@ -2,15 +2,15 @@
     <id>com.shenjiajun.TinyPic</id>
     <name>TinyPic</name>
     <version>1.0</version>
-    <vendor email="shenjiajun53@qq.com" url="http://www.yourcompany.com">ShenJiajun</vendor>
+    <vendor email="shenjiajun53@qq.com" url="https://github.com/shenjiajun53/TinyPic">ShenJiajun</vendor>
 
     <description><![CDATA[
-      Enter short description for your plugin here.<br>
+      compress images use TinyPng api.<br>
       <em>most HTML tags may be used</em>
     ]]></description>
 
     <change-notes><![CDATA[
-      Add change notes here.<br>
+      First release.<br>
       <em>most HTML tags may be used</em>
     ]]>
     </change-notes>
@@ -20,9 +20,9 @@
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
-    <!-- uncomment to enable plugin in all products
+
     <depends>com.intellij.modules.lang</depends>
-    -->
+
 
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
