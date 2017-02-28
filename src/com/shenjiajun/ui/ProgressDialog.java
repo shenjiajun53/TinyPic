@@ -16,7 +16,10 @@ import java.util.logging.Logger;
 public class ProgressDialog extends DialogWrapper {
     private int maxImages = 0;
     private int currentIndex = 0;
+    JPanel jPanel;
     JProgressBar jProgressBar;
+    JTextArea reminderText;
+    JTextArea linkText;
     private Logger logger = Logger.getLogger("ProgressDialog");
 
     public void setMaxImages(int maxImages) {
@@ -32,47 +35,31 @@ public class ProgressDialog extends DialogWrapper {
         init();
     }
 
-    protected ProgressDialog(@Nullable Project project, boolean canBeParent) {
-        super(project, canBeParent);
-        init();
-    }
-
-    protected ProgressDialog(@Nullable Project project, boolean canBeParent, @NotNull IdeModalityType ideModalityType) {
-        super(project, canBeParent, ideModalityType);
-        init();
-    }
-
-    protected ProgressDialog(@Nullable Project project, @Nullable Component parentComponent, boolean canBeParent, @NotNull IdeModalityType ideModalityType) {
-        super(project, parentComponent, canBeParent, ideModalityType);
-        init();
-    }
-
-
-    protected ProgressDialog(boolean canBeParent) {
-        super(canBeParent);
-        init();
-    }
-
     @Nullable
     @Override
     protected JComponent createCenterPanel() {
+        jPanel = new JPanel();
+
         jProgressBar = new JProgressBar(SwingConstants.HORIZONTAL, 0, maxImages);
-//        jProgressBar.addChangeListener(new ChangeListener() {
-//            @Override
-//            public void stateChanged(ChangeEvent e) {
-//
-//            }
-//        });
-        logger.info("maxImages=" + maxImages + " currentIndex=" + currentIndex);
         jProgressBar.setString(currentIndex + "/" + maxImages);
         jProgressBar.setValue(currentIndex);
         jProgressBar.setStringPainted(true);
-//        jProgressBar.setBorderPainted(true);
-//        jProgressBar.setForeground(Color.cyan);
-//        jProgressBar.setBackground(Color.BLACK);
 
-//        jProgressBar.show();
-        return jProgressBar;
+        reminderText = new JTextArea();
+        reminderText.setVisible(false);
+//        reminderText.setForeground(Color.CYAN);
+        reminderText.setBackground(new Color(255, 255, 255, 0));
+
+        jPanel.setLayout(new GridLayout(2, 1));
+        jPanel.add(jProgressBar);
+        jPanel.add(reminderText);
+        return jPanel;
+    }
+
+    public void showError(String errorStr) {
+        jProgressBar.setVisible(false);
+        reminderText.setText(errorStr);
+        reminderText.setVisible(true);
     }
 
     public void revalidate() {
@@ -80,28 +67,9 @@ public class ProgressDialog extends DialogWrapper {
         jProgressBar.setString(currentIndex + "/" + maxImages);
         jProgressBar.setValue(currentIndex);
 
-        jProgressBar.revalidate();
-        jProgressBar.repaint();
+//        jProgressBar.revalidate();
+
     }
-
-//    @Override
-//    public void repaint() {
-//        super.repaint();
-//
-//    }
-//
-//    @Nullable
-//    @Override
-//    protected ValidationInfo doValidate() {
-//        ValidationInfo validationInfo = new ValidationInfo("111", jProgressBar);
-//        return validationInfo;
-//    }
-
-//    @Nullable
-//    @Override
-//    public JComponent getPreferredFocusedComponent() {
-//        return super.getPreferredFocusedComponent();
-//    }
 
     @Override
     protected void init() {

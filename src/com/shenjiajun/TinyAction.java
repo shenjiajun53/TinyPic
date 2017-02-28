@@ -22,23 +22,29 @@ import java.util.logging.Logger;
  * Created by shenjj on 2017/2/27.
  */
 public class TinyAction extends AnAction {
-    Logger logger = Logger.getLogger("UploadFileAction");
+    static Logger logger = Logger.getLogger("UploadFileAction");
     private ProgressDialog progressDialog;
-    private int currentIndex = 0;
+    private static int currentIndex = 0;
     private ArrayList<VirtualFile> pictureFiles = new ArrayList<>();
     private Project project;
-    private boolean cancelTiny = false;
+    private static boolean cancelTiny = false;
 
     @Override
     public void actionPerformed(AnActionEvent e) {
         // TODO: insert action logic here
         project = e.getProject();
-//        String api = Messages.showInputDialog(project, "请输入API KEY", "TinyPic", Messages.getQuestionIcon());
-        String api = "sxI1bi2kts_S_8Ceyiozj_Omct6C_4IL";
+        String api = Messages.showInputDialog(project, "请输入API KEY", "TinyPic", Messages.getQuestionIcon());
+        if (TextUtils.isEmpty(api)) {
+            return;
+        }
         Tinify.setKey(api);
 
         FileChooserDescriptor descriptor = new FileChooserDescriptor(true, true, false, false, false, true);
         VirtualFile[] selectedFiles = FileChooser.chooseFiles(descriptor, project, null);
+        if (selectedFiles.length == 0) {
+            return;
+        }
+
         filterAllPictures(selectedFiles);
         tinyFiles();
 
@@ -86,19 +92,19 @@ public class TinyAction extends AnAction {
                             currentIndex++;
                             progressDialog.setCurrentIndex(currentIndex);
                             progressDialog.revalidate();
+
                         }
-                    } catch (IOException e1) {
+                    } catch (Exception e1) {
 //                        logger.warning(e1.toString());
-                        logger.warning("每月500张图片限制已用完11");
+                        e1.printStackTrace();
                         if (e1.toString().contains("AccountException")) {
-                            logger.warning("每月500张图片限制已用完");
-                            progressDialog.doCancelAction();
-                            Messages.showErrorDialog(project, "每月500张图片限制已用完", "TinyPic");
+                            cancelTiny = true;
+                            progressDialog.showError("每月500张图片限制已用完,请获取新KEY");
                         }
-//                        e1.printStackTrace();
                     }
                 }
             }).start();
         }
     }
 }
+
