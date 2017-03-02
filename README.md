@@ -1,3 +1,7 @@
+https://github.com/shenjiajun53/TinyPic 喜欢请给个star
+
+http://www.jianshu.com/p/5f2e1b400bb8  这里是简书上的Blog，写的代码过程
+
 # TinyPic
 ## 一个Intellij的插件
 功能：压缩图片资源，一次最多压缩500张
@@ -11,6 +15,7 @@ https://tinypng.com/
 在开发者页面下申请api key。对于一个key，每月有500次的免费压缩额度，如果压缩超过了
 500张图片，就不能使用了。需要另外付费。但是申请这个api特别简单，填下邮箱，用户名就行，多申请
 两个邮箱。1000张图片也妥妥够了。
+这里推荐google个十分钟邮箱，不需要注册，只能使用十分钟，用来收一下验证码很方便
 
 ![webstorm.png](./screenshots/tinypng_develop.png)
 

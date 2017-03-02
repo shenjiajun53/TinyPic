@@ -1,7 +1,7 @@
 <idea-plugin version="2">
     <id>com.shenjiajun.TinyPic</id>
     <name>TinyPic</name>
-    <version>1.0</version>
+    <version>1.0.1</version>
     <vendor email="shenjiajun53@qq.com" url="https://github.com/shenjiajun53/TinyPic">ShenJiajun</vendor>
 
     <description><![CDATA[
