@@ -45,6 +45,7 @@ public class TinyAction extends AnAction {
             return;
         }
 
+        pictureFiles.clear();
         filterAllPictures(selectedFiles);
         tinyFiles();
 
@@ -86,7 +87,7 @@ public class TinyAction extends AnAction {
                         if (!cancelTiny) {
                             source = Tinify.fromFile(virtualFile.getPath());
                             Result result = source.result();
-                            logger.info("result size=" + result.size() + " mediaType=" + result.mediaType() + " " + result.toString());
+                            logger.info("result size=" + result.size() + " mediaType=" + result.mediaType());
                             source.toFile(virtualFile.getPath());
 
                             currentIndex++;

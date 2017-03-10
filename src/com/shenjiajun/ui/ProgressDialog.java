@@ -63,7 +63,7 @@ public class ProgressDialog extends DialogWrapper {
     }
 
     public void revalidate() {
-        logger.info("repaint maxImages=" + maxImages + " currentIndex=" + currentIndex);
+//        logger.info("repaint maxImages=" + maxImages + " currentIndex=" + currentIndex);
         jProgressBar.setString(currentIndex + "/" + maxImages);
         jProgressBar.setValue(currentIndex);
 
