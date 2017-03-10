@@ -1,17 +1,15 @@
 <idea-plugin version="2">
     <id>com.shenjiajun.TinyPic</id>
     <name>TinyPic</name>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <vendor email="shenjiajun53@qq.com" url="https://github.com/shenjiajun53/TinyPic">ShenJiajun</vendor>
 
     <description><![CDATA[
       compress images use TinyPng api.<br>
-      <em>most HTML tags may be used</em>
     ]]></description>
 
     <change-notes><![CDATA[
-      First release.<br>
-      <em>most HTML tags may be used</em>
+      Bug fix.<br>
     ]]>
     </change-notes>
 
