@@ -78,30 +78,27 @@ public class TinyAction extends AnAction {
         for (int i = 0; i < pictureFiles.size(); i++) {
             currentIndex = 0;
             VirtualFile virtualFile = pictureFiles.get(i);
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    Source source = null;
+            new Thread(() -> {
+                Source source = null;
 //                    logger.info("path=" + virtualFile.getPath());
-                    try {
-                        if (!cancelTiny) {
-                            source = Tinify.fromFile(virtualFile.getPath());
-                            Result result = source.result();
-                            logger.info("result size=" + result.size() + " mediaType=" + result.mediaType());
-                            source.toFile(virtualFile.getPath());
+                try {
+                    if (!cancelTiny) {
+                        source = Tinify.fromFile(virtualFile.getPath());
+                        Result result = source.result();
+                        logger.info("result size=" + result.size() + " mediaType=" + result.mediaType());
+                        source.toFile(virtualFile.getPath());
 
-                            currentIndex++;
-                            progressDialog.setCurrentIndex(currentIndex);
-                            progressDialog.revalidate();
+                        currentIndex++;
+                        progressDialog.setCurrentIndex(currentIndex);
+                        progressDialog.revalidate();
 
-                        }
-                    } catch (Exception e1) {
+                    }
+                } catch (Exception e1) {
 //                        logger.warning(e1.toString());
-                        e1.printStackTrace();
-                        if (e1.toString().contains("AccountException")) {
-                            cancelTiny = true;
-                            progressDialog.showError();
-                        }
+                    e1.printStackTrace();
+                    if (e1.toString().contains("AccountException")) {
+                        cancelTiny = true;
+                        progressDialog.showError();
                     }
                 }
             }).start();

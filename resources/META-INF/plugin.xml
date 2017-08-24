@@ -1,7 +1,7 @@
 <idea-plugin version="2">
     <id>com.shenjiajun.TinyPic</id>
     <name>TinyPic</name>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <vendor email="shenjiajun53@qq.com" url="https://github.com/shenjiajun53/TinyPic">ShenJiajun</vendor>
 
     <description><![CDATA[
@@ -9,7 +9,7 @@
     ]]></description>
 
     <change-notes><![CDATA[
-      Bug fix.<br>
+     Fix bug that do not work on Android Studio2.3+.<br>
     ]]>
     </change-notes>
 
